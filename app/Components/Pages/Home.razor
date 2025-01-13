@@ -1,0 +1,25 @@
+﻿@page "/"
+
+@using System.Net
+@using System.Text
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+
+@inject ProtectedSessionStorage ProtectedSessionStore
+
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, @Username</h1>
+
+Welcome to BlockChat.
+
+@code {
+    private string? Username = "unknown user";
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (!firstRender) return;
+        if ((await ProtectedSessionStore.GetAsync<string>("username")).Value != null)
+            Username = (await ProtectedSessionStore.GetAsync<string>("username")).Value;
+        StateHasChanged();
+    }
+}

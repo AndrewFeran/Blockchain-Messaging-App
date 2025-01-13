@@ -1,0 +1,93 @@
+@page "/signup"
+
+@using System.Net
+@using System.Text
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@using System.Text.Json
+@using System.Security.Cryptography;
+
+@inject ProtectedSessionStorage ProtectedSessionStore
+@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+<h3>Signup</h3>
+
+<form id="signupForm" @onsubmit="HandleSubmitPlain">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" @bind="Username" />
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" @bind="Password" />
+  </div>
+
+  <button type="submit">Signup</button>
+</form>
+
+<NavLink class="nav-link" href="login">
+  <span aria-hidden="true"></span> Already have an account? Login.
+</NavLink>
+
+@if (!string.IsNullOrEmpty(FeedbackMessage))
+{
+  <p>@FeedbackMessage</p>
+}
+
+@code {
+  private string Username = string.Empty;
+  private string Password = string.Empty;
+  private string FeedbackMessage = "";
+  public class Resp {
+    public string? message { get; set; }
+    public string? token { get; set; }
+  }
+
+  private async void HandleSubmitPlain() {
+    string url = "http://127.0.0.1:8000/signup";
+
+    using HttpClient client = new HttpClient();
+
+    // Convert the input string to a byte array and compute the hash
+    string hashed;
+    using (SHA256 sha256 = SHA256.Create())
+    {
+      byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Password));
+      // Convert hash bytes to hexadecimal string
+      hashed = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+    }
+
+    // Create JSON payload
+    string data = "{\"username\":\"" + Username + "\", \"password\":\"" + hashed + "\"}";
+    StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
+
+    // Send POST request
+    HttpResponseMessage response = await client.PostAsync(url, content);
+
+    try { // Ensure the response was successful
+      response.EnsureSuccessStatusCode();
+
+      // Read the response for the token
+      string result = await response.Content.ReadAsStringAsync();
+      Resp? resp = JsonSerializer.Deserialize<Resp>(result);
+      string? token = resp?.token;
+
+      // finish authetniticaction
+      FeedbackMessage = $"Welcome, {Username}!";
+      if (token != null) await ProtectedSessionStore.SetAsync("token", (string) token);
+      await ProtectedSessionStore.SetAsync("username", (string) Username);
+
+      Navigation.NavigateTo("/", true);
+    } catch {
+      if ((int)response.StatusCode == 409) { // Conflict
+        FeedbackMessage = $"Username: {Username} is already taken";
+      } else {
+        FeedbackMessage = $"Unknown error";
+      }
+    } finally {
+      StateHasChanged();
+    }
+  }
+}

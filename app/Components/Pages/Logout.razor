@@ -1,0 +1,36 @@
+@page "/logout"
+
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+
+@inject ProtectedSessionStorage ProtectedSessionStore
+@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+<h3>Logout</h3>
+
+<form id="logoutForm" @onsubmit="HandleSubmitPlain">
+  <label>Are you sure you want to log out? All data will be deleted</label>
+  <button type="submit">Yes</button>
+</form>
+
+@if (!string.IsNullOrEmpty(FeedbackMessage))
+{
+  <p>@FeedbackMessage</p>
+}
+
+@code {
+  private string FeedbackMessage = "";
+  private async void HandleSubmitPlain() {
+    // remove auth token from storage
+    try {
+      await ProtectedSessionStore.DeleteAsync("token");
+      await ProtectedSessionStore.DeleteAsync("username");
+    } catch {
+      FeedbackMessage = "Unknown error attempting to logout";
+    } finally {
+      StateHasChanged();
+      Navigation.NavigateTo("/", true);
+    }
+  }
+}
