@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\js\\sessionStorageHelper.js",
+      "PackagePath": "staticwebassets\\js\\sessionStorageHelper.js"
+    },
+    {
       "Id": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },

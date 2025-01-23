@@ -2,6 +2,7 @@
 
 @using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 
+@inject IJSRuntime JSRuntime
 @inject ProtectedSessionStorage ProtectedSessionStore
 @inject NavigationManager Navigation
 
@@ -24,8 +25,11 @@
   private async void HandleSubmitPlain() {
     // remove auth token from storage
     try {
-      await ProtectedSessionStore.DeleteAsync("token");
-      await ProtectedSessionStore.DeleteAsync("username");
+      var keys = await JSRuntime.InvokeAsync<List<string>>("sessionStorageHelper.getAllKeys");
+      foreach (var key in keys) {
+        await ProtectedSessionStore.DeleteAsync(key);
+      }
+      
     } catch {
       FeedbackMessage = "Unknown error attempting to logout";
     } finally {

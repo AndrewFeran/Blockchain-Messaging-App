@@ -158,3 +158,5 @@ C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\re
 C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\app.pdb
 C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\app.genruntimeconfig.cache
 C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\ref\app.dll
+C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\app.sourcelink.json
+C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\compressed\irydnuy2l7-sjblpw2hyy.gz

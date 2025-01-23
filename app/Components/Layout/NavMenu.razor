@@ -1,8 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 
+@inject IJSRuntime JSRuntime
 @inject ProtectedSessionStorage ProtectedSessionStore
 
 @rendermode InteractiveServer
+
+<script src="js/sessionStorageHelper.js"></script>
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -21,20 +24,39 @@
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="NewChat" Match="NavLinkMatch.All">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> New Chat
-            </NavLink>
-        </div>
+        @if (AuthStatus != null) {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="newchat" Match="NavLinkMatch.All">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> New Chat
+                </NavLink>
+            </div>
+        } 
+
+        @foreach (var chat in ChatNames)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="@($"/chat?user={chat}")" Match="NavLinkMatch.All">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> @chat
+                </NavLink>
+            </div>
+        }
 
     </nav>
 </div>
 
 @code {
     private string? AuthStatus = null;
+    private List<string> ChatNames = new List<string> {};
     protected override async Task OnAfterRenderAsync(bool firstRender) {
         if (!firstRender) return;
         AuthStatus = (await ProtectedSessionStore.GetAsync<string>("token")).Value;
+        if (AuthStatus != null) { // user is authorized
+            ChatNames = (await JSRuntime.InvokeAsync<List<string>>("sessionStorageHelper.getAllKeys"))
+                .Where(s => s.Contains("chat."))
+                .ToList()
+                .Select(s => s.StartsWith("chat.") ? s.Substring("chat.".Length) : s)
+                .ToList();
+        }
         StateHasChanged();
     }
 }

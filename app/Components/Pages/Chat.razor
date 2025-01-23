@@ -1,0 +1,21 @@
+@page "/chat"
+
+@inject NavigationManager NavigationManager
+
+@if (user == null) {
+    <div>Error: no user entered to chat with</div>
+} else {
+    <div>You are chatting with @user</div>
+}
+
+@code {
+    private string? user = null;
+
+    protected override void OnInitialized()
+    {
+        var uri = new Uri(NavigationManager.Uri);
+        var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+
+        if (query.ContainsKey("user"))  user = query["user"];
+    }
+}

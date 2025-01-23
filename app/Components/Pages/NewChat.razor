@@ -1,5 +1,10 @@
 @page "/newchat"
 
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+
+@inject ProtectedSessionStorage ProtectedSessionStore
+@inject NavigationManager Navigation
+
 @rendermode InteractiveServer
 
 <h3>New Chat</h3>
@@ -22,16 +27,26 @@
     private string Username = string.Empty;
     private string FeedbackMessage = "";
     private async void HandleSubmitPlain() {
-        string url = "http://127.0.0.1:8000/newchat?username=" + Username;
-
-        using HttpClient client = new HttpClient();
+        //check if there is already a chat with that user
+        if ((await ProtectedSessionStore.GetAsync<string>("chat."+Username)).Value == string.Empty) {
+            // there is chat saved with the specificed user
+            FeedbackMessage = $"You already have a chat with the specificed user";
+            StateHasChanged();
+            return;
+        }
 
         // make the get req
+        string url = "http://127.0.0.1:8000/newchat?username=" + Username;
+        using HttpClient client = new HttpClient();
         HttpResponseMessage response = await client.GetAsync(url);
         
         try {
             response.EnsureSuccessStatusCode();
             FeedbackMessage = $"Success!";
+
+            // set the chat in storage
+            await ProtectedSessionStore.SetAsync("chat."+Username, string.Empty);
+            Navigation.NavigateTo("/chat?user=" + Username, true);
         }
         catch {
             switch ((int)response.StatusCode) {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "t0xR7S19V8XctCw7gzvk5i3wDgpxIOr6H9j6L33tf40=",
+  "Hash": "kiQavqVCJVxRxHZeM9wDAhJBBw4vfpMZ4qTFeme/n8Q=",
   "Source": "app",
   "BasePath": "_content/app",
   "Mode": "Default",
@@ -540,6 +540,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\obj\\Debug\\net9.0\\compressed\\irydnuy2l7-sjblpw2hyy.gz",
+      "SourceId": "app",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/app",
+      "RelativePath": "js/sessionStorageHelper#[.{fingerprint=sjblpw2hyy}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\js\\sessionStorageHelper.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "iqdp77z0rq",
+      "Integrity": "NtsN7/vC4D7XcmSqtyUXuRBajxwU9LfXPcDYPBbeQfk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\js\\sessionStorageHelper.js"
     },
     {
       "Identity": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\obj\\Debug\\net9.0\\compressed\\itej1wh685-s35ty4nyc5.gz",
@@ -1086,6 +1107,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\js\\sessionStorageHelper.js",
+      "SourceId": "app",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\",
+      "BasePath": "_content/app",
+      "RelativePath": "js/sessionStorageHelper#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sjblpw2hyy",
+      "Integrity": "uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\sessionStorageHelper.js"
     },
     {
       "Identity": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
@@ -2986,6 +3028,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "js/sessionStorageHelper.js",
+      "AssetFile": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\obj\\Debug\\net9.0\\compressed\\irydnuy2l7-sjblpw2hyy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.008771929825"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NtsN7/vC4D7XcmSqtyUXuRBajxwU9LfXPcDYPBbeQfk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 02:30:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM="
+        }
+      ]
+    },
+    {
+      "Route": "js/sessionStorageHelper.js",
+      "AssetFile": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\js\\sessionStorageHelper.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "118"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 02:30:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM="
+        }
+      ]
+    },
+    {
+      "Route": "js/sessionStorageHelper.js.gz",
+      "AssetFile": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\obj\\Debug\\net9.0\\compressed\\irydnuy2l7-sjblpw2hyy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NtsN7/vC4D7XcmSqtyUXuRBajxwU9LfXPcDYPBbeQfk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 02:30:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NtsN7/vC4D7XcmSqtyUXuRBajxwU9LfXPcDYPBbeQfk="
+        }
+      ]
+    },
+    {
+      "Route": "js/sessionStorageHelper.sjblpw2hyy.js",
+      "AssetFile": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\obj\\Debug\\net9.0\\compressed\\irydnuy2l7-sjblpw2hyy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.008771929825"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NtsN7/vC4D7XcmSqtyUXuRBajxwU9LfXPcDYPBbeQfk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 02:30:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sjblpw2hyy"
+        },
+        {
+          "Name": "label",
+          "Value": "js/sessionStorageHelper.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM="
+        }
+      ]
+    },
+    {
+      "Route": "js/sessionStorageHelper.sjblpw2hyy.js",
+      "AssetFile": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\wwwroot\\js\\sessionStorageHelper.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "118"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 02:30:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sjblpw2hyy"
+        },
+        {
+          "Name": "label",
+          "Value": "js/sessionStorageHelper.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uMaO5xSQfxBzRZGvc9Jy8pIu3xq0WXyTdMRd4DT55rM="
+        }
+      ]
+    },
+    {
+      "Route": "js/sessionStorageHelper.sjblpw2hyy.js.gz",
+      "AssetFile": "C:\\Users\\Perky\\OneDrive\\Desktop\\Blockchain Messaging App\\app\\obj\\Debug\\net9.0\\compressed\\irydnuy2l7-sjblpw2hyy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NtsN7/vC4D7XcmSqtyUXuRBajxwU9LfXPcDYPBbeQfk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 02:30:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sjblpw2hyy"
+        },
+        {
+          "Name": "label",
+          "Value": "js/sessionStorageHelper.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NtsN7/vC4D7XcmSqtyUXuRBajxwU9LfXPcDYPBbeQfk="
         }
       ]
     },
