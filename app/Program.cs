@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddSignalR(); // Add SignalR service
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,5 +25,8 @@ app.UseAntiforgery();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+// Set up SignalR routes
+app.MapHub<ChatHub>("/chathub"); // Define the SignalR hub route
 
 app.Run();

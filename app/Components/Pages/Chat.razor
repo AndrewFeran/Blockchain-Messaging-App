@@ -1,21 +1,101 @@
 @page "/chat"
 
-@inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 
-@if (user == null) {
-    <div>Error: no user entered to chat with</div>
-} else {
-    <div>You are chatting with @user</div>
-}
+@inject ProtectedSessionStorage ProtectedSessionStore
+@inject NavigationManager Navigation
+
+@implements IAsyncDisposable
+
+@rendermode InteractiveServer
+
+<h3>Chat</h3>
+
+<div>
+    <label for="message">Message:</label>
+    <input type="text" id="message" @bind="message" placeholder="Type a message" />
+</div>
+
+<button @onclick="SendMessage" disabled="@(string.IsNullOrWhiteSpace(user) ||
+    string.IsNullOrWhiteSpace(message))">Send</button>
+
+<hr />
+
+<h4>Messages</h4>
+<div>
+    @foreach (var chatMessage in messages) {
+        @if (chatMessage.Recipient == recipient || chatMessage.User == recipient) {
+           <p><strong>@chatMessage.User:</strong> @chatMessage.Message</p>
+        }
+    }
+</div>
 
 @code {
+    private HubConnection hubConnection;
     private string? user = null;
+    private string message = "";
+    private string? recipient = null;
+    private List<ChatMessage> messages = new List<ChatMessage>();
 
-    protected override void OnInitialized()
+    // This model represents a chat message
+    public class ChatMessage
     {
-        var uri = new Uri(NavigationManager.Uri);
-        var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+        public string? User { get; set; }
+        public string? Message { get; set; }
+        public string? Recipient { get; set; }
+    }
 
-        if (query.ContainsKey("user"))  user = query["user"];
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (!firstRender) return;
+        if ((await ProtectedSessionStore.GetAsync<string>("username")).Value != null) {
+            // get user (sender)
+            user = (await ProtectedSessionStore.GetAsync<string>("username")).Value;
+            // get recipient
+            var uri = new Uri(Navigation.Uri);
+            var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+            if (query.ContainsKey("user"))  recipient = query["user"];
+
+            // Create SignalR Hub connection
+            hubConnection = new HubConnectionBuilder()
+                .WithUrl(Navigation.ToAbsoluteUri("/chathub"), options =>
+                {
+                    options.Headers["Username"] = user ?? ""; // Custom header
+                })
+                .Build();
+
+            // Handle receiving messages from SignalR
+            hubConnection.On<string, string>("ReceiveMessage", (sender, message) => {
+                // Add received message to the list of messages
+                messages.Add(new ChatMessage { User = sender, Message = message, Recipient = user });
+                InvokeAsync(StateHasChanged); // Trigger UI update
+            });
+
+            // Start the connection
+            await hubConnection.StartAsync();
+        }
+    }
+
+    // Send message method
+    private async Task SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(message)) return;
+
+        // Send the message to the SignalR hub
+        await hubConnection.SendAsync("SendMessage", user, message, recipient);
+
+        // Optionally, add the message locally to display without waiting for server response
+        messages.Add(new ChatMessage { User = user, Message = message, Recipient = recipient });
+
+        // Clear the input message box after sending
+        message = "";
+
+        // Trigger UI update
+        StateHasChanged();
+    }
+
+    // Dispose of the SignalR connection when the component is disposed
+    public async ValueTask DisposeAsync() {
+        if (hubConnection != null) await hubConnection.DisposeAsync();
     }
 }

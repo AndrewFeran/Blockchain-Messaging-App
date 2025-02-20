@@ -160,3 +160,9 @@ C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\ap
 C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\ref\app.dll
 C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\app.sourcelink.json
 C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\compressed\irydnuy2l7-sjblpw2hyy.gz
+C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\bin\Debug\net9.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\bin\Debug\net9.0\System.Net.ServerSentEvents.dll
+C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\app.csproj.AssemblyReference.cache
+C:\Users\Perky\OneDrive\Desktop\Blockchain Messaging App\app\obj\Debug\net9.0\app.csproj.Up2Date
